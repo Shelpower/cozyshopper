@@ -1,10 +1,12 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '@/lib/useCart';
 import { Badge } from '@/components/ui/badge';
+import { toast } from 'sonner';
 
 interface ProductCardProps {
   product: Product;
@@ -18,10 +20,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
     e.preventDefault();
     e.stopPropagation();
     addItem(product, 1);
+    toast.success(`Added ${product.name} to cart`, {
+      duration: 2000, // Shorter display time
+    });
   };
   
   return (
-    <div 
+    <Link 
+      to={`/product/${product.id}`}
       className="product-card group h-full flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -31,7 +37,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <img
           src={product.images[0]}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
         
@@ -91,7 +97,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

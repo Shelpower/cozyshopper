@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getProductsByCategory } from '@/lib/data';
 import { Product } from '@/lib/types';
 import CategoryNav from '@/components/CategoryNav';
@@ -8,6 +8,7 @@ import ProductGrid from '@/components/ProductGrid';
 
 const ProductPage = () => {
   const { category = 'all' } = useParams<{ category: string }>();
+  const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   
@@ -25,8 +26,7 @@ const ProductPage = () => {
   }, [category]);
   
   const handleCategoryChange = (newCategory: string) => {
-    // This function is handled by the router via CategoryNav component
-    console.log('Category selected:', newCategory);
+    navigate(`/products/${newCategory}`);
   };
   
   // Format category name for display

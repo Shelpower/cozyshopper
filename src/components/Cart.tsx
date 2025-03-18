@@ -3,6 +3,7 @@ import { X, ShoppingBag, Trash2, Plus, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/lib/useCart';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { 
@@ -28,7 +29,9 @@ const Cart = () => {
       )}
       
       <div 
-        className={`cart-wrapper ${isCartOpen ? 'open animate-slide-in-right' : 'closed animate-slide-out-right'}`}
+        className={`fixed top-0 right-0 z-50 h-full w-full sm:w-96 bg-background border-l shadow-lg transform transition-transform duration-300 ease-in-out ${
+          isCartOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
         aria-hidden={!isCartOpen}
       >
         <div className="flex flex-col h-full">
@@ -121,8 +124,10 @@ const Cart = () => {
               </div>
               <p className="text-xs text-muted-foreground">Shipping and taxes calculated at checkout</p>
               <div className="grid gap-2">
-                <Button size="lg" className="w-full">
-                  Checkout
+                <Button size="lg" className="w-full" asChild onClick={toggleCart}>
+                  <Link to="/checkout">
+                    Checkout
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg" className="w-full" onClick={clearCart}>
                   Clear Cart

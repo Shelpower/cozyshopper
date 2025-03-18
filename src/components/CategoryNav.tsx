@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { categoryNavItems } from '@/lib/data';
@@ -28,14 +28,20 @@ const CategoryNav = ({ onSelectCategory, className = '' }: CategoryNavProps) => 
   
   const [activeCategory, setActiveCategory] = useState<Category | 'all'>(getActiveCategoryFromPath());
   
+  // Update active category when location changes
+  useEffect(() => {
+    setActiveCategory(getActiveCategoryFromPath());
+  }, [location.pathname]);
+  
   const handleCategoryClick = (category: Category | 'all') => {
     setActiveCategory(category);
     
     if (onSelectCategory) {
       onSelectCategory(category);
-    } else {
-      navigate(`/products/${category}`);
     }
+    
+    // Always navigate to ensure the URL updates
+    navigate(`/products/${category}`);
   };
   
   return (

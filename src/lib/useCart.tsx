@@ -13,6 +13,7 @@ type CartContextType = {
   toggleCart: () => void;
   totalItems: number;
   totalPrice: number;
+  total: number; // Added for compatibility with CheckoutPage
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -56,11 +57,15 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         // Item already exists, update quantity
         const updatedItems = [...prevItems];
         updatedItems[existingItemIndex].quantity += quantity;
-        toast.success(`Updated ${product.name} quantity in cart`);
+        toast.success(`Updated ${product.name} quantity in cart`, {
+          duration: 2000, // Shorter display time
+        });
         return updatedItems;
       } else {
         // Add new item
-        toast.success(`Added ${product.name} to cart`);
+        toast.success(`Added ${product.name} to cart`, {
+          duration: 2000, // Shorter display time
+        });
         return [...prevItems, { product, quantity }];
       }
     });
@@ -70,7 +75,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setItems(prevItems => {
       const item = prevItems.find(item => item.product.id === productId);
       if (item) {
-        toast.info(`Removed ${item.product.name} from cart`);
+        toast.info(`Removed ${item.product.name} from cart`, {
+          duration: 2000, // Shorter display time
+        });
       }
       return prevItems.filter(item => item.product.id !== productId);
     });
@@ -94,7 +101,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   
   const clearCart = () => {
     setItems([]);
-    toast.info('Cart cleared');
+    toast.info('Cart cleared', {
+      duration: 2000, // Shorter display time
+    });
   };
   
   const toggleCart = () => {
@@ -111,6 +120,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     toggleCart,
     totalItems,
     totalPrice,
+    total: totalPrice, // Add total property for CheckoutPage compatibility
   };
   
   return (

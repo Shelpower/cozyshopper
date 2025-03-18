@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Grid, List, SlidersHorizontal, ShoppingBag, TagIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,6 +9,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import ProductCard from './ProductCard';
 import { Product } from '@/lib/types';
+import { useCart } from '@/lib/useCart';
+import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 
 interface ProductGridProps {
   products: Product[];
@@ -23,6 +25,7 @@ type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'name-asc' | 'rating
 const ProductGrid = ({ products, title, description }: ProductGridProps) => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [sortOption, setSortOption] = useState<SortOption>('featured');
+  const { addItem } = useCart();
   
   const sortProducts = (products: Product[]): Product[] => {
     const productsCopy = [...products];
@@ -66,7 +69,13 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
     }
   };
   
-  // Filter to show only sale items
+  const handleAddToCart = (product: Product) => {
+    addItem(product, 1);
+    toast.success(`Added ${product.name} to cart`, {
+      duration: 2000,
+    });
+  };
+  
   const onSaleProducts = products.filter(product => product.onSale);
   
   return (
@@ -151,7 +160,10 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
         <div className="space-y-4 animate-fade-in">
           {sortedProducts.map((product) => (
             <div key={product.id} className="flex border rounded-lg p-4 gap-4">
-              <div className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0 relative">
+              <Link 
+                to={`/product/${product.id}`}
+                className="w-24 h-24 rounded-md overflow-hidden bg-muted flex-shrink-0 relative"
+              >
                 <img 
                   src={product.images[0]} 
                   alt={product.name}
@@ -163,9 +175,11 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
                     Sale
                   </div>
                 )}
-              </div>
+              </Link>
               <div className="flex-1 min-w-0">
-                <h3 className="font-medium">{product.name}</h3>
+                <Link to={`/product/${product.id}`} className="hover:underline">
+                  <h3 className="font-medium">{product.name}</h3>
+                </Link>
                 <p className="text-sm text-muted-foreground line-clamp-2 mb-2">{product.description}</p>
                 <div className="flex justify-between items-center">
                   {product.onSale ? (
@@ -179,7 +193,7 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    onClick={() => {}}
+                    onClick={() => handleAddToCart(product)}
                   >
                     <ShoppingBag className="mr-2 h-4 w-4" />
                     Add to Cart

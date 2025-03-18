@@ -1,143 +1,169 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '@/lib/useTheme';
-import { useAuth } from '@/lib/useAuth';
 import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { 
-  Sun, 
-  Moon, 
-  Monitor, 
-  Eye,
-  ZoomIn,
-  Move,
-  Palette
-} from 'lucide-react';
-import { Navigate } from 'react-router-dom';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Switch } from '@/components/ui/switch';
+import { toast } from 'sonner';
+import { Moon, Sun, PanelLeft, Laptop } from 'lucide-react';
+
+type FontSize = 'small' | 'medium' | 'large';
 
 const SettingsPage = () => {
   const { theme, setTheme } = useTheme();
-  const { user, isAuthenticated } = useAuth();
-  const [fontSize, setFontSize] = useState(user?.preferences.fontSize || 'medium');
-  const [reduceMotion, setReduceMotion] = useState(user?.preferences.reduceMotion || false);
-  const [highContrast, setHighContrast] = useState(user?.preferences.highContrast || false);
+  const [fontSize, setFontSize] = useState<FontSize>('medium');
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [highContrast, setHighContrast] = useState(false);
   
-  // Redirect to login if not authenticated
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
+  // Load user preferences from localStorage on init
+  useEffect(() => {
+    const savedFontSize = localStorage.getItem('fontSize') as FontSize | null;
+    const savedReduceMotion = localStorage.getItem('reduceMotion') === 'true';
+    const savedHighContrast = localStorage.getItem('highContrast') === 'true';
+    
+    if (savedFontSize) setFontSize(savedFontSize);
+    if (savedReduceMotion !== null) setReduceMotion(savedReduceMotion);
+    if (savedHighContrast !== null) setHighContrast(savedHighContrast);
+    
+    // Apply font size to html element
+    applyFontSize(savedFontSize || 'medium');
+  }, []);
   
-  const handleFontSizeChange = (size: string) => {
-    setFontSize(size);
-    document.documentElement.style.fontSize = 
-      size === 'small' ? '14px' : 
-      size === 'large' ? '18px' : '16px';
+  const handleFontSizeChange = (value: string) => {
+    const newSize = value as FontSize;
+    setFontSize(newSize);
+    localStorage.setItem('fontSize', newSize);
+    applyFontSize(newSize);
+    toast.success(`Font size changed to ${newSize}`);
+  };
+  
+  const applyFontSize = (size: FontSize) => {
+    const html = document.documentElement;
+    
+    // Remove existing font size classes
+    html.classList.remove('text-sm', 'text-base', 'text-lg');
+    
+    // Add appropriate class based on selected size
+    switch(size) {
+      case 'small':
+        html.classList.add('text-sm');
+        break;
+      case 'medium':
+        html.classList.add('text-base');
+        break;
+      case 'large':
+        html.classList.add('text-lg');
+        break;
+    }
   };
   
   const handleReduceMotionChange = (checked: boolean) => {
     setReduceMotion(checked);
+    localStorage.setItem('reduceMotion', String(checked));
+    
+    const html = document.documentElement;
     if (checked) {
-      document.documentElement.classList.add('reduce-motion');
+      html.classList.add('reduce-motion');
     } else {
-      document.documentElement.classList.remove('reduce-motion');
+      html.classList.remove('reduce-motion');
     }
+    
+    toast.success(`Motion ${checked ? 'reduced' : 'enabled'}`);
   };
   
   const handleHighContrastChange = (checked: boolean) => {
     setHighContrast(checked);
+    localStorage.setItem('highContrast', String(checked));
+    
+    const html = document.documentElement;
     if (checked) {
-      document.documentElement.classList.add('high-contrast');
+      html.classList.add('high-contrast');
     } else {
-      document.documentElement.classList.remove('high-contrast');
+      html.classList.remove('high-contrast');
     }
+    
+    toast.success(`High contrast mode ${checked ? 'enabled' : 'disabled'}`);
   };
   
   return (
     <div className="container px-4 py-24 md:py-32">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-medium mb-6">Settings</h1>
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-medium mb-8">Settings</h1>
         
         <div className="space-y-10">
-          {/* Theme Settings */}
-          <div className="border rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-2 mb-6">
-              <Palette className="h-5 w-5" />
-              <h2 className="text-xl font-medium">Theme Settings</h2>
-            </div>
-            
+          {/* Appearance */}
+          <div>
+            <h2 className="text-xl font-medium mb-6">Appearance</h2>
             <div className="space-y-6">
+              {/* Theme Selector */}
               <div>
-                <h3 className="text-sm font-medium mb-3">Appearance</h3>
-                <div className="grid grid-cols-3 gap-2">
-                  <Button 
+                <div className="flex justify-between items-center mb-4">
+                  <Label className="text-base">Theme</Label>
+                </div>
+                <div className="grid grid-cols-3 gap-4">
+                  <Button
+                    variant={theme === 'light' ? 'default' : 'outline'}
+                    className="flex-col h-24 py-6"
                     onClick={() => setTheme('light')}
-                    variant={theme === 'light' ? 'default' : 'outline'} 
-                    className="h-auto py-6 flex flex-col gap-1"
                   >
-                    <Sun className="h-5 w-5" />
+                    <Sun className="h-6 w-6 mb-2" />
                     <span>Light</span>
                   </Button>
-                  <Button 
+                  <Button
+                    variant={theme === 'dark' ? 'default' : 'outline'}
+                    className="flex-col h-24 py-6"
                     onClick={() => setTheme('dark')}
-                    variant={theme === 'dark' ? 'default' : 'outline'} 
-                    className="h-auto py-6 flex flex-col gap-1"
                   >
-                    <Moon className="h-5 w-5" />
+                    <Moon className="h-6 w-6 mb-2" />
                     <span>Dark</span>
                   </Button>
-                  <Button 
+                  <Button
+                    variant={theme === 'system' ? 'default' : 'outline'}
+                    className="flex-col h-24 py-6"
                     onClick={() => setTheme('system')}
-                    variant={theme === 'system' ? 'default' : 'outline'} 
-                    className="h-auto py-6 flex flex-col gap-1"
                   >
-                    <Monitor className="h-5 w-5" />
+                    <Laptop className="h-6 w-6 mb-2" />
                     <span>System</span>
                   </Button>
                 </div>
               </div>
+              
+              {/* Font Size */}
+              <div>
+                <Label className="text-base mb-4 block">Font Size</Label>
+                <RadioGroup 
+                  value={fontSize} 
+                  onValueChange={handleFontSizeChange} 
+                  className="flex space-x-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="small" id="small" />
+                    <Label htmlFor="small">Small</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="medium" id="medium" />
+                    <Label htmlFor="medium">Medium</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="large" id="large" />
+                    <Label htmlFor="large">Large</Label>
+                  </div>
+                </RadioGroup>
+              </div>
             </div>
           </div>
           
-          {/* Accessibility Settings */}
-          <div className="border rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-2 mb-6">
-              <Eye className="h-5 w-5" />
-              <h2 className="text-xl font-medium">Accessibility</h2>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-sm font-medium mb-3">Font Size</h3>
-                <div className="grid grid-cols-3 gap-2">
-                  <Button 
-                    onClick={() => handleFontSizeChange('small')}
-                    variant={fontSize === 'small' ? 'default' : 'outline'} 
-                    className="relative"
-                  >
-                    <span className="text-sm">Small</span>
-                  </Button>
-                  <Button 
-                    onClick={() => handleFontSizeChange('medium')}
-                    variant={fontSize === 'medium' ? 'default' : 'outline'} 
-                    className="relative"
-                  >
-                    <span className="text-base">Medium</span>
-                  </Button>
-                  <Button 
-                    onClick={() => handleFontSizeChange('large')}
-                    variant={fontSize === 'large' ? 'default' : 'outline'} 
-                    className="relative"
-                  >
-                    <span className="text-lg">Large</span>
-                  </Button>
-                </div>
-              </div>
-              
+          {/* Accessibility */}
+          <div>
+            <h2 className="text-xl font-medium mb-6">Accessibility</h2>
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Move className="h-4 w-4 text-muted-foreground" />
-                  <Label htmlFor="reduce-motion">Reduce motion</Label>
+                <div>
+                  <Label htmlFor="reduce-motion" className="text-base">Reduce Motion</Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Minimize animation and movement
+                  </p>
                 </div>
                 <Switch 
                   id="reduce-motion" 
@@ -146,10 +172,12 @@ const SettingsPage = () => {
                 />
               </div>
               
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <ZoomIn className="h-4 w-4 text-muted-foreground" />
-                  <Label htmlFor="high-contrast">High contrast</Label>
+              <div className="flex items-center justify-between pt-2">
+                <div>
+                  <Label htmlFor="high-contrast" className="text-base">High Contrast</Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Increase contrast for better readability
+                  </p>
                 </div>
                 <Switch 
                   id="high-contrast" 
@@ -160,25 +188,38 @@ const SettingsPage = () => {
             </div>
           </div>
           
-          {/* Account Settings */}
-          <div className="border rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-medium mb-4">Account Settings</h2>
+          {/* Privacy */}
+          <div>
+            <h2 className="text-xl font-medium mb-6">Privacy</h2>
             <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-1">Email</h3>
-                <p>{user?.email}</p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label htmlFor="analytics" className="text-base">Usage Analytics</Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Help us improve by sharing anonymous usage data
+                  </p>
+                </div>
+                <Switch id="analytics" defaultChecked />
               </div>
-              <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-1">Password</h3>
-                <p>••••••••</p>
+              
+              <div className="flex items-center justify-between pt-2">
+                <div>
+                  <Label htmlFor="cookies" className="text-base">Accept Cookies</Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Allow cookies for personalized experience
+                  </p>
+                </div>
+                <Switch id="cookies" defaultChecked />
               </div>
-              <Button variant="outline">Change Password</Button>
             </div>
           </div>
-        </div>
-        
-        <div className="mt-8 text-center">
-          <Button className="px-8">Save Settings</Button>
+          
+          {/* Actions */}
+          <div className="pt-4">
+            <Button onClick={() => toast.success('Settings saved successfully')}>
+              Save Changes
+            </Button>
+          </div>
         </div>
       </div>
     </div>
