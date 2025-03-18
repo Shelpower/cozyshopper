@@ -75,6 +75,34 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  
+  /* Font size accessibility */
+  html.text-sm {
+    font-size: 14px;
+  }
+  
+  html.text-base {
+    font-size: 16px;
+  }
+  
+  html.text-lg {
+    font-size: 18px;
+  }
+  
+  /* Reduce motion accessibility */
+  html.reduce-motion * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  
+  /* High contrast accessibility */
+  html.high-contrast {
+    filter: contrast(1.4);
+  }
+  
+  html.high-contrast .text-muted-foreground {
+    @apply text-foreground opacity-90;
+  }
 }
 
 /* Custom animations and classes */
@@ -104,7 +132,7 @@
   }
 
   .cart-wrapper {
-    @apply fixed right-0 top-0 z-50 h-full w-full sm:w-96 transform transition-transform duration-300 ease-in-out bg-white shadow-xl;
+    @apply fixed right-0 top-0 z-50 h-full w-full sm:w-96 transform transition-transform duration-300 ease-in-out bg-background border-l shadow-xl;
   }
   
   .cart-wrapper.open {
@@ -116,6 +144,35 @@
   }
   
   .frosted-glass {
-    @apply backdrop-blur-md bg-white/80 shadow-lg;
+    @apply backdrop-blur-md bg-background/80 shadow-lg;
+  }
+  
+  /* Fisheye menu effect */
+  .fisheye-menu {
+    @apply relative flex items-center justify-center;
+  }
+  
+  .fisheye-item {
+    @apply transition-all duration-300 px-2 py-1 relative text-center;
+  }
+  
+  .fisheye-item:hover {
+    @apply scale-110 text-primary;
+  }
+  
+  @media (min-width: 768px) {
+    .fisheye-menu:hover .fisheye-item:not(:hover) {
+      @apply opacity-70 scale-95;
+    }
+  }
+  
+  /* Sale badge */
+  .sale-badge {
+    @apply absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full;
+  }
+  
+  /* Animate fade in */
+  .animate-fade-in {
+    @apply animate-in fade-in duration-300;
   }
 }

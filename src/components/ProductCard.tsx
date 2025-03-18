@@ -4,6 +4,7 @@ import { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '@/lib/useCart';
+import { Badge } from '@/components/ui/badge';
 
 interface ProductCardProps {
   product: Product;
@@ -34,6 +35,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
           loading="lazy"
         />
         
+        {product.onSale && (
+          <Badge className="absolute top-2 right-2 bg-red-500 hover:bg-red-600">
+            Sale
+          </Badge>
+        )}
+        
         {/* Quick action buttons that appear on hover */}
         <div 
           className={`absolute inset-0 bg-black/5 flex items-end justify-center p-4 transition-opacity duration-300 ${
@@ -63,7 +70,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       
       <div className="flex-1 flex flex-col">
-        <div className="mb-1">
+        <div className="mb-1 flex gap-1">
           {product.featured && (
             <span className="tag bg-primary/10 text-primary text-xs mb-1">Featured</span>
           )}
@@ -71,7 +78,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <h3 className="font-medium text-base">{product.name}</h3>
         <p className="text-muted-foreground text-sm mb-auto line-clamp-2">{product.description}</p>
         <div className="flex justify-between items-center mt-2">
-          <span className="text-lg font-medium">${product.price.toFixed(2)}</span>
+          {product.onSale ? (
+            <div className="flex flex-col">
+              <span className="text-lg font-medium text-red-500">${product.price.toFixed(2)}</span>
+              <span className="text-sm text-muted-foreground line-through">${product.originalPrice?.toFixed(2)}</span>
+            </div>
+          ) : (
+            <span className="text-lg font-medium">${product.price.toFixed(2)}</span>
+          )}
           <div className="flex items-center">
             <span className="text-sm text-muted-foreground">★ {product.rating}</span>
           </div>

@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Grid, List, SlidersHorizontal, ShoppingBag } from 'lucide-react';
+import { Grid, List, SlidersHorizontal, ShoppingBag, TagIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -18,7 +18,7 @@ interface ProductGridProps {
 }
 
 type ViewMode = 'grid' | 'list';
-type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'name-asc';
+type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'name-asc' | 'rating-desc' | 'sale';
 
 const ProductGrid = ({ products, title, description }: ProductGridProps) => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
@@ -34,6 +34,14 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
         return productsCopy.sort((a, b) => b.price - a.price);
       case 'name-asc':
         return productsCopy.sort((a, b) => a.name.localeCompare(b.name));
+      case 'rating-desc':
+        return productsCopy.sort((a, b) => b.rating - a.rating);
+      case 'sale':
+        return productsCopy.sort((a, b) => {
+          if (a.onSale && !b.onSale) return -1;
+          if (!a.onSale && b.onSale) return 1;
+          return 0;
+        });
       case 'featured':
       default:
         return productsCopy.sort((a, b) => {
@@ -52,9 +60,14 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
       case 'price-asc': return 'Price: Low to High';
       case 'price-desc': return 'Price: High to Low';
       case 'name-asc': return 'Name: A to Z';
+      case 'rating-desc': return 'Top Rated';
+      case 'sale': return 'On Sale';
       default: return 'Sort';
     }
   };
+  
+  // Filter to show only sale items
+  const onSaleProducts = products.filter(product => product.onSale);
   
   return (
     <div>
@@ -68,6 +81,11 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
       <div className="flex justify-between items-center mb-6">
         <div className="text-sm text-muted-foreground">
           {products.length} {products.length === 1 ? 'product' : 'products'}
+          {onSaleProducts.length > 0 && (
+            <span className="ml-2">
+              ({onSaleProducts.length} on sale)
+            </span>
+          )}
         </div>
         
         <div className="flex items-center gap-2">
@@ -90,6 +108,12 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setSortOption('name-asc')}>
                 Name: A to Z
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSortOption('rating-desc')}>
+                Top Rated
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSortOption('sale')}>
+                On Sale
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -127,19 +151,31 @@ const ProductGrid = ({ products, title, description }: ProductGridProps) => {
         <div className="space-y-4 animate-fade-in">
           {sortedProducts.map((product) => (
             <div key={product.id} className="flex border rounded-lg p-4 gap-4">
-              <div className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
+              <div className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0 relative">
                 <img 
                   src={product.images[0]} 
                   alt={product.name}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
+                {product.onSale && (
+                  <div className="absolute top-0 right-0 bg-red-500 text-white text-xs px-1 rounded-bl">
+                    Sale
+                  </div>
+                )}
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-medium">{product.name}</h3>
                 <p className="text-sm text-muted-foreground line-clamp-2 mb-2">{product.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium">${product.price.toFixed(2)}</span>
+                  {product.onSale ? (
+                    <div className="flex gap-2 items-center">
+                      <span className="font-medium text-red-500">${product.price.toFixed(2)}</span>
+                      <span className="text-sm text-muted-foreground line-through">${product.originalPrice?.toFixed(2)}</span>
+                    </div>
+                  ) : (
+                    <span className="font-medium">${product.price.toFixed(2)}</span>
+                  )}
                   <Button 
                     variant="outline" 
                     size="sm"

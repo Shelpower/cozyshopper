@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/lib/useCart';
-import { Search, ShoppingBag, Menu, X } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, Home, User, Settings, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SearchBar from './SearchBar';
+import { useTheme } from '@/lib/useTheme';
 
 const Navbar = () => {
   const { totalItems, toggleCart } = useCart();
+  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -33,24 +35,51 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="font-medium text-xl tracking-tight">
-          HomeDecor
+        <Link to="/" className="font-medium text-xl tracking-tight flex items-center gap-2">
+          <Home className="h-6 w-6" />
+          <span>QualityDecor</span>
         </Link>
         
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Fisheye effect with CSS scale transform */}
         <nav className="hidden md:flex space-x-8">
-          <Link to="/" className="text-sm font-medium hover:text-primary/80 transition-colors">
-            Home
-          </Link>
-          <Link to="/products/office" className="text-sm font-medium hover:text-primary/80 transition-colors">
-            Office
-          </Link>
-          <Link to="/products/furniture" className="text-sm font-medium hover:text-primary/80 transition-colors">
-            Furniture
-          </Link>
-          <Link to="/products/accessories" className="text-sm font-medium hover:text-primary/80 transition-colors">
-            Accessories
-          </Link>
+          <div className="fisheye-menu flex items-center space-x-6">
+            <Link 
+              to="/" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              Home
+            </Link>
+            <Link 
+              to="/products/office" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              Office
+            </Link>
+            <Link 
+              to="/products/furniture" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              Furniture
+            </Link>
+            <Link 
+              to="/products/accessories" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              Accessories
+            </Link>
+            <Link 
+              to="/products/lighting" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              Lighting
+            </Link>
+            <Link 
+              to="/about" 
+              className="text-sm font-medium hover:text-primary/80 transition-all duration-300 fisheye-item"
+            >
+              About
+            </Link>
+          </div>
         </nav>
         
         {/* Action buttons */}
@@ -64,6 +93,27 @@ const Navbar = () => {
           >
             <Search className="h-5 w-5" />
           </Button>
+          
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="relative"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+          
+          <Link to="/profile">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              aria-label="User profile"
+              className="relative"
+            >
+              <User className="h-5 w-5" />
+            </Button>
+          </Link>
           
           <Button 
             variant="ghost" 
@@ -108,6 +158,18 @@ const Navbar = () => {
             </Link>
             <Link to="/products/accessories" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               Accessories
+            </Link>
+            <Link to="/products/lighting" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              Lighting
+            </Link>
+            <Link to="/about" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              About
+            </Link>
+            <Link to="/profile" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              Profile
+            </Link>
+            <Link to="/settings" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              Settings
             </Link>
           </nav>
         </div>

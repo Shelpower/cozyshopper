@@ -10,9 +10,11 @@ export interface Product {
   featured?: boolean;
   inStock: boolean;
   rating: number;
+  onSale?: boolean;
+  originalPrice?: number;
 }
 
-export type Category = 'office' | 'furniture' | 'accessories';
+export type Category = 'office' | 'furniture' | 'accessories' | 'lighting';
 
 export interface CartItem {
   product: Product;
@@ -24,4 +26,18 @@ export interface CategoryNavItem {
   label: string;
   icon?: string;
   filter: Category | 'all';
+}
+
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  preferences: UserPreferences;
+}
+
+export interface UserPreferences {
+  theme: 'light' | 'dark' | 'system';
+  fontSize: 'small' | 'medium' | 'large';
+  reduceMotion: boolean;
+  highContrast: boolean;
 }
