@@ -18,7 +18,7 @@ const CareersPage = () => {
       department: 'Design',
       location: 'New York, NY (Hybrid)',
       type: 'Full-time',
-      description: 'We're looking for a talented Product Designer to join our team and help create beautiful, functional products for our customers.'
+      description: 'We\'re looking for a talented Product Designer to join our team and help create beautiful, functional products for our customers.'
     },
     {
       id: 2,
