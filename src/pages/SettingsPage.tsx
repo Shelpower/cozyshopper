@@ -12,6 +12,163 @@ import { Moon, Sun, Laptop, Eye, Type, TextCursorInput, Brush, Contrast, PanelLe
 
 type FontSize = 'small' | 'medium' | 'large';
 type ColorTheme = 'default' | 'blue' | 'purple' | 'green';
+type Language = 'english' | 'spanish' | 'french' | 'german';
+
+// Translation data for different languages
+const translations = {
+  english: {
+    settings: "Settings",
+    appearance: "Appearance",
+    theme: "Theme",
+    light: "Light",
+    dark: "Dark",
+    system: "System",
+    colorAccents: "Color Accents",
+    fontSize: "Font Size",
+    small: "Small",
+    medium: "Medium",
+    large: "Large",
+    accessibility: "Accessibility",
+    reduceMotion: "Reduce Motion",
+    reduceMotionDesc: "Minimize animation and movement",
+    highContrast: "High Contrast",
+    highContrastDesc: "Increase contrast for better readability",
+    dyslexiaFont: "Dyslexia-friendly Font",
+    dyslexiaFontDesc: "Use a more readable font for dyslexic users",
+    lineSpacing: "Line Spacing",
+    tight: "Tight",
+    normal: "Normal",
+    relaxed: "Relaxed",
+    loose: "Loose",
+    notifications: "Notifications",
+    enableNotifications: "Enable Notifications",
+    notificationsDesc: "Receive alerts about order updates and promotions",
+    soundEffects: "Sound Effects",
+    soundEffectsDesc: "Enable sound feedback for interactions",
+    languageRegion: "Language & Region",
+    preferredLanguage: "Preferred Language",
+    privacy: "Privacy",
+    analytics: "Usage Analytics",
+    analyticsDesc: "Help us improve by sharing anonymous usage data",
+    cookies: "Accept Cookies",
+    cookiesDesc: "Allow cookies for personalized experience",
+    saveChanges: "Save Changes"
+  },
+  spanish: {
+    settings: "Configuración",
+    appearance: "Apariencia",
+    theme: "Tema",
+    light: "Claro",
+    dark: "Oscuro",
+    system: "Sistema",
+    colorAccents: "Acentos de Color",
+    fontSize: "Tamaño de Fuente",
+    small: "Pequeño",
+    medium: "Mediano",
+    large: "Grande",
+    accessibility: "Accesibilidad",
+    reduceMotion: "Reducir Movimiento",
+    reduceMotionDesc: "Minimizar animaciones y movimientos",
+    highContrast: "Alto Contraste",
+    highContrastDesc: "Aumentar el contraste para mejor legibilidad",
+    dyslexiaFont: "Fuente para Dislexia",
+    dyslexiaFontDesc: "Usar una fuente más legible para usuarios con dislexia",
+    lineSpacing: "Espaciado de Línea",
+    tight: "Estrecho",
+    normal: "Normal",
+    relaxed: "Relajado",
+    loose: "Amplio",
+    notifications: "Notificaciones",
+    enableNotifications: "Activar Notificaciones",
+    notificationsDesc: "Recibir alertas sobre actualizaciones de pedidos y promociones",
+    soundEffects: "Efectos de Sonido",
+    soundEffectsDesc: "Activar retroalimentación sonora para interacciones",
+    languageRegion: "Idioma y Región",
+    preferredLanguage: "Idioma Preferido",
+    privacy: "Privacidad",
+    analytics: "Análisis de Uso",
+    analyticsDesc: "Ayúdanos a mejorar compartiendo datos anónimos de uso",
+    cookies: "Aceptar Cookies",
+    cookiesDesc: "Permitir cookies para una experiencia personalizada",
+    saveChanges: "Guardar Cambios"
+  },
+  french: {
+    settings: "Paramètres",
+    appearance: "Apparence",
+    theme: "Thème",
+    light: "Clair",
+    dark: "Sombre",
+    system: "Système",
+    colorAccents: "Accents de Couleur",
+    fontSize: "Taille de Police",
+    small: "Petit",
+    medium: "Moyen",
+    large: "Grand",
+    accessibility: "Accessibilité",
+    reduceMotion: "Réduire les Mouvements",
+    reduceMotionDesc: "Minimiser les animations et mouvements",
+    highContrast: "Contraste Élevé",
+    highContrastDesc: "Augmenter le contraste pour une meilleure lisibilité",
+    dyslexiaFont: "Police pour Dyslexie",
+    dyslexiaFontDesc: "Utiliser une police plus lisible pour les utilisateurs dyslexiques",
+    lineSpacing: "Espacement des Lignes",
+    tight: "Serré",
+    normal: "Normal",
+    relaxed: "Détendu",
+    loose: "Large",
+    notifications: "Notifications",
+    enableNotifications: "Activer les Notifications",
+    notificationsDesc: "Recevoir des alertes sur les mises à jour de commandes et promotions",
+    soundEffects: "Effets Sonores",
+    soundEffectsDesc: "Activer les retours sonores pour les interactions",
+    languageRegion: "Langue et Région",
+    preferredLanguage: "Langue Préférée",
+    privacy: "Confidentialité",
+    analytics: "Analyse d'Utilisation",
+    analyticsDesc: "Aidez-nous à améliorer en partageant des données d'utilisation anonymes",
+    cookies: "Accepter les Cookies",
+    cookiesDesc: "Autoriser les cookies pour une expérience personnalisée",
+    saveChanges: "Enregistrer les Modifications"
+  },
+  german: {
+    settings: "Einstellungen",
+    appearance: "Erscheinungsbild",
+    theme: "Thema",
+    light: "Hell",
+    dark: "Dunkel",
+    system: "System",
+    colorAccents: "Farbakzente",
+    fontSize: "Schriftgröße",
+    small: "Klein",
+    medium: "Mittel",
+    large: "Groß",
+    accessibility: "Barrierefreiheit",
+    reduceMotion: "Bewegungen Reduzieren",
+    reduceMotionDesc: "Animationen und Bewegungen minimieren",
+    highContrast: "Hoher Kontrast",
+    highContrastDesc: "Kontrast für bessere Lesbarkeit erhöhen",
+    dyslexiaFont: "Legasthenie-freundliche Schrift",
+    dyslexiaFontDesc: "Eine besser lesbare Schrift für Legastheniker verwenden",
+    lineSpacing: "Zeilenabstand",
+    tight: "Eng",
+    normal: "Normal",
+    relaxed: "Entspannt",
+    loose: "Weit",
+    notifications: "Benachrichtigungen",
+    enableNotifications: "Benachrichtigungen Aktivieren",
+    notificationsDesc: "Erhalten Sie Benachrichtigungen über Bestellupdates und Aktionen",
+    soundEffects: "Soundeffekte",
+    soundEffectsDesc: "Akustische Rückmeldung für Interaktionen aktivieren",
+    languageRegion: "Sprache & Region",
+    preferredLanguage: "Bevorzugte Sprache",
+    privacy: "Datenschutz",
+    analytics: "Nutzungsanalyse",
+    analyticsDesc: "Helfen Sie uns zu verbessern, indem Sie anonyme Nutzungsdaten teilen",
+    cookies: "Cookies Akzeptieren",
+    cookiesDesc: "Cookies für ein personalisiertes Erlebnis zulassen",
+    saveChanges: "Änderungen Speichern"
+  }
+};
 
 const SettingsPage = () => {
   const { theme, setTheme } = useTheme();
@@ -23,7 +180,8 @@ const SettingsPage = () => {
   const [lineSpacing, setLineSpacing] = useState('normal');
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
-  const [language, setLanguage] = useState('english');
+  const [language, setLanguage] = useState<Language>('english');
+  const [t, setT] = useState(translations.english);
   
   // Load user preferences from localStorage on init
   useEffect(() => {
@@ -35,7 +193,7 @@ const SettingsPage = () => {
     const savedLineSpacing = localStorage.getItem('lineSpacing') || 'normal';
     const savedNotifications = localStorage.getItem('notifications') !== 'false';
     const savedSound = localStorage.getItem('sound') !== 'false';
-    const savedLanguage = localStorage.getItem('language') || 'english';
+    const savedLanguage = localStorage.getItem('language') as Language || 'english';
     
     if (savedFontSize) setFontSize(savedFontSize);
     if (savedReduceMotion !== null) setReduceMotion(savedReduceMotion);
@@ -45,13 +203,19 @@ const SettingsPage = () => {
     if (savedLineSpacing) setLineSpacing(savedLineSpacing);
     if (savedNotifications !== null) setNotificationsEnabled(savedNotifications);
     if (savedSound !== null) setSoundEnabled(savedSound);
-    if (savedLanguage) setLanguage(savedLanguage);
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+      setT(translations[savedLanguage]);
+    }
     
     // Apply settings on load
     applyFontSize(savedFontSize || 'medium');
     applyColorTheme(savedColorTheme || 'default');
     if (savedDyslexiaFont) applyDyslexiaFont(true);
     if (savedLineSpacing) applyLineSpacing(savedLineSpacing);
+    
+    // Set HTML lang attribute based on saved language
+    document.documentElement.lang = savedLanguage || 'en';
   }, []);
   
   const handleFontSizeChange = (value: string) => {
@@ -176,28 +340,43 @@ const SettingsPage = () => {
   };
 
   const handleLanguageChange = (value: string) => {
-    setLanguage(value);
-    localStorage.setItem('language', value);
-    toast.success(`Language changed to ${value}`);
+    const newLanguage = value as Language;
+    setLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+    
+    // Update translations
+    setT(translations[newLanguage]);
+    
+    // Set HTML lang attribute
+    const langCode = {
+      english: 'en',
+      spanish: 'es',
+      french: 'fr',
+      german: 'de'
+    }[newLanguage];
+    
+    document.documentElement.lang = langCode;
+    
+    toast.success(`Language changed to ${newLanguage}`);
   };
   
   return (
     <div className="container px-4 py-24 md:py-32">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-medium mb-8">Settings</h1>
+        <h1 className="text-3xl md:text-4xl font-medium mb-8">{t.settings}</h1>
         
         <div className="space-y-10">
           {/* Appearance */}
           <div className="bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg border border-blue-100/50 dark:border-blue-800/50">
             <h2 className="text-xl font-medium mb-6 flex items-center">
               <Brush className="mr-2 h-5 w-5 text-blue-500" />
-              Appearance
+              {t.appearance}
             </h2>
             <div className="space-y-6">
               {/* Theme Selector */}
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <Label className="text-base">Theme</Label>
+                  <Label className="text-base">{t.theme}</Label>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <Button
@@ -206,7 +385,7 @@ const SettingsPage = () => {
                     onClick={() => setTheme('light')}
                   >
                     <Sun className="h-6 w-6 mb-2 text-amber-500" />
-                    <span>Light</span>
+                    <span>{t.light}</span>
                   </Button>
                   <Button
                     variant={theme === 'dark' ? 'default' : 'outline'}
@@ -214,7 +393,7 @@ const SettingsPage = () => {
                     onClick={() => setTheme('dark')}
                   >
                     <Moon className="h-6 w-6 mb-2 text-indigo-400" />
-                    <span>Dark</span>
+                    <span>{t.dark}</span>
                   </Button>
                   <Button
                     variant={theme === 'system' ? 'default' : 'outline'}
@@ -222,14 +401,14 @@ const SettingsPage = () => {
                     onClick={() => setTheme('system')}
                   >
                     <Laptop className="h-6 w-6 mb-2 text-gray-600 dark:text-gray-300" />
-                    <span>System</span>
+                    <span>{t.system}</span>
                   </Button>
                 </div>
               </div>
 
               {/* Color Theme */}
               <div>
-                <Label className="text-base mb-4 block">Color Accents</Label>
+                <Label className="text-base mb-4 block">{t.colorAccents}</Label>
                 <ToggleGroup type="single" value={colorTheme} onValueChange={handleColorThemeChange} className="flex flex-wrap justify-start gap-2">
                   <ToggleGroupItem value="default" className="bg-white dark:bg-gray-800 border h-10 w-10 rounded-full p-1">
                     <span className="block w-full h-full rounded-full bg-primary"></span>
@@ -250,7 +429,7 @@ const SettingsPage = () => {
               <div>
                 <Label className="text-base mb-4 block flex items-center">
                   <Type className="mr-2 h-4 w-4 text-blue-500" />
-                  Font Size
+                  {t.fontSize}
                 </Label>
                 <RadioGroup 
                   value={fontSize} 
@@ -259,15 +438,15 @@ const SettingsPage = () => {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="small" id="small" />
-                    <Label htmlFor="small">Small</Label>
+                    <Label htmlFor="small">{t.small}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="medium" id="medium" />
-                    <Label htmlFor="medium">Medium</Label>
+                    <Label htmlFor="medium">{t.medium}</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="large" id="large" />
-                    <Label htmlFor="large">Large</Label>
+                    <Label htmlFor="large">{t.large}</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -278,17 +457,17 @@ const SettingsPage = () => {
           <div className="bg-gradient-to-r from-green-50/50 to-teal-50/50 dark:from-green-900/20 dark:to-teal-900/20 p-6 rounded-lg border border-green-100/50 dark:border-green-800/50">
             <h2 className="text-xl font-medium mb-6 flex items-center">
               <Eye className="mr-2 h-5 w-5 text-green-500" />
-              Accessibility
+              {t.accessibility}
             </h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="reduce-motion" className="text-base flex items-center">
                     <PanelLeft className="mr-2 h-4 w-4 text-green-500" />
-                    Reduce Motion
+                    {t.reduceMotion}
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Minimize animation and movement
+                    {t.reduceMotionDesc}
                   </p>
                 </div>
                 <Switch 
@@ -302,10 +481,10 @@ const SettingsPage = () => {
                 <div>
                   <Label htmlFor="high-contrast" className="text-base flex items-center">
                     <Contrast className="mr-2 h-4 w-4 text-green-500" />
-                    High Contrast
+                    {t.highContrast}
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Increase contrast for better readability
+                    {t.highContrastDesc}
                   </p>
                 </div>
                 <Switch 
@@ -319,10 +498,10 @@ const SettingsPage = () => {
                 <div>
                   <Label htmlFor="dyslexia-font" className="text-base flex items-center">
                     <TextCursorInput className="mr-2 h-4 w-4 text-green-500" />
-                    Dyslexia-friendly Font
+                    {t.dyslexiaFont}
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Use a more readable font for dyslexic users
+                    {t.dyslexiaFontDesc}
                   </p>
                 </div>
                 <Switch 
@@ -333,12 +512,12 @@ const SettingsPage = () => {
               </div>
 
               <div className="pt-2">
-                <Label className="text-base mb-2 block">Line Spacing</Label>
+                <Label className="text-base mb-2 block">{t.lineSpacing}</Label>
                 <ToggleGroup type="single" value={lineSpacing} onValueChange={handleLineSpacingChange} className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <ToggleGroupItem value="tight">Tight</ToggleGroupItem>
-                  <ToggleGroupItem value="normal">Normal</ToggleGroupItem>
-                  <ToggleGroupItem value="relaxed">Relaxed</ToggleGroupItem>
-                  <ToggleGroupItem value="loose">Loose</ToggleGroupItem>
+                  <ToggleGroupItem value="tight">{t.tight}</ToggleGroupItem>
+                  <ToggleGroupItem value="normal">{t.normal}</ToggleGroupItem>
+                  <ToggleGroupItem value="relaxed">{t.relaxed}</ToggleGroupItem>
+                  <ToggleGroupItem value="loose">{t.loose}</ToggleGroupItem>
                 </ToggleGroup>
               </div>
             </div>
@@ -348,14 +527,14 @@ const SettingsPage = () => {
           <div className="bg-gradient-to-r from-amber-50/50 to-orange-50/50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-lg border border-amber-100/50 dark:border-amber-800/50">
             <h2 className="text-xl font-medium mb-6 flex items-center">
               <Bell className="mr-2 h-5 w-5 text-amber-500" />
-              Notifications
+              {t.notifications}
             </h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <Label htmlFor="notifications" className="text-base">Enable Notifications</Label>
+                  <Label htmlFor="notifications" className="text-base">{t.enableNotifications}</Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Receive alerts about order updates and promotions
+                    {t.notificationsDesc}
                   </p>
                 </div>
                 <Switch 
@@ -369,10 +548,10 @@ const SettingsPage = () => {
                 <div>
                   <Label htmlFor="sound" className="text-base flex items-center">
                     <Volume2 className="mr-2 h-4 w-4 text-amber-500" />
-                    Sound Effects
+                    {t.soundEffects}
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Enable sound feedback for interactions
+                    {t.soundEffectsDesc}
                   </p>
                 </div>
                 <Switch 
@@ -388,10 +567,10 @@ const SettingsPage = () => {
           <div className="bg-gradient-to-r from-indigo-50/50 to-violet-50/50 dark:from-indigo-900/20 dark:to-violet-900/20 p-6 rounded-lg border border-indigo-100/50 dark:border-indigo-800/50">
             <h2 className="text-xl font-medium mb-6 flex items-center">
               <Languages className="mr-2 h-5 w-5 text-indigo-500" />
-              Language & Region
+              {t.languageRegion}
             </h2>
             <div className="space-y-4">
-              <Label className="text-base mb-2 block">Preferred Language</Label>
+              <Label className="text-base mb-2 block">{t.preferredLanguage}</Label>
               <ToggleGroup type="single" value={language} onValueChange={handleLanguageChange} className="flex flex-wrap gap-2">
                 <ToggleGroupItem value="english">English</ToggleGroupItem>
                 <ToggleGroupItem value="spanish">Español</ToggleGroupItem>
@@ -403,13 +582,13 @@ const SettingsPage = () => {
           
           {/* Privacy */}
           <div className="bg-gradient-to-r from-slate-50/50 to-gray-50/50 dark:from-slate-900/20 dark:to-gray-900/20 p-6 rounded-lg border border-slate-100/50 dark:border-slate-800/50">
-            <h2 className="text-xl font-medium mb-6">Privacy</h2>
+            <h2 className="text-xl font-medium mb-6">{t.privacy}</h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <Label htmlFor="analytics" className="text-base">Usage Analytics</Label>
+                  <Label htmlFor="analytics" className="text-base">{t.analytics}</Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Help us improve by sharing anonymous usage data
+                    {t.analyticsDesc}
                   </p>
                 </div>
                 <Switch id="analytics" defaultChecked />
@@ -417,9 +596,9 @@ const SettingsPage = () => {
               
               <div className="flex items-center justify-between pt-2">
                 <div>
-                  <Label htmlFor="cookies" className="text-base">Accept Cookies</Label>
+                  <Label htmlFor="cookies" className="text-base">{t.cookies}</Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Allow cookies for personalized experience
+                    {t.cookiesDesc}
                   </p>
                 </div>
                 <Switch id="cookies" defaultChecked />
@@ -430,10 +609,10 @@ const SettingsPage = () => {
           {/* Actions */}
           <div className="pt-4">
             <Button 
-              onClick={() => toast.success('Settings saved successfully')}
+              onClick={() => toast.success(language === 'english' ? 'Settings saved successfully' : 'Configuración guardada exitosamente')}
               className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
             >
-              Save Changes
+              {t.saveChanges}
             </Button>
           </div>
         </div>

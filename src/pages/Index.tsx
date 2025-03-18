@@ -171,52 +171,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Footer */}
-      <footer className="border-t py-12">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-medium mb-4">Shop</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/products/all" className="text-muted-foreground hover:text-foreground transition-colors">All Products</Link></li>
-                <li><Link to="/products/office" className="text-muted-foreground hover:text-foreground transition-colors">Home Office</Link></li>
-                <li><Link to="/products/furniture" className="text-muted-foreground hover:text-foreground transition-colors">Furniture</Link></li>
-                <li><Link to="/products/accessories" className="text-muted-foreground hover:text-foreground transition-colors">Accessories</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-medium mb-4">Company</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Press</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sustainability</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-medium mb-4">Support</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Shipping</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Returns</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-medium mb-4">Legal</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Accessibility</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2023 HomeDecor. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* Removed duplicate footer section */}
     </div>
   );
 };

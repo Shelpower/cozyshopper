@@ -1,4 +1,3 @@
-
 import { Product, CategoryNavItem, User } from './types';
 
 // Our product data
@@ -474,7 +473,7 @@ export const products: Product[] = [
   }
 ];
 
-// Placeholder for product images - in a real app, these would be actual image paths
+// Placeholder for product images - update with more realistic images for each product
 for (const product of products) {
   // Set default images if none provided
   if (!product.images || product.images.length === 0) {
@@ -484,27 +483,105 @@ for (const product of products) {
     ];
   }
   
-  // Add more realistic product images based on category
+  // Add more realistic product images based on category and product type
   if (product.category === 'office') {
-    product.images = [
-      "https://images.unsplash.com/photo-1483058712412-4245e9b90334", 
-      "https://images.unsplash.com/photo-1497366216548-37526070297c"
-    ];
+    if (product.name.toLowerCase().includes('lamp')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      ];
+    } else if (product.name.toLowerCase().includes('chair')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1505843490578-27c7dfbd7f1d",
+        "https://images.unsplash.com/photo-1580480055273-228ff5388ef8"
+      ];
+    } else if (product.name.toLowerCase().includes('desk')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd",
+        "https://images.unsplash.com/photo-1544140708-514b7837c325"
+      ];
+    } else if (product.name.toLowerCase().includes('organizer')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1591129841117-3adfd313a592",
+        "https://images.unsplash.com/photo-1502005097973-6a7082348e28"
+      ];
+    } else {
+      product.images = [
+        "https://images.unsplash.com/photo-1483058712412-4245e9b90334", 
+        "https://images.unsplash.com/photo-1497366216548-37526070297c"
+      ];
+    }
   } else if (product.category === 'furniture') {
-    product.images = [
-      "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6", 
-      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126"
-    ];
+    if (product.name.toLowerCase().includes('table')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1577140917170-285929fb55b7",
+        "https://images.unsplash.com/photo-1533090161767-e6ffed986c88"
+      ];
+    } else if (product.name.toLowerCase().includes('chair') || product.name.toLowerCase().includes('armchair')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c",
+        "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91"
+      ];
+    } else if (product.name.toLowerCase().includes('shelf') || product.name.toLowerCase().includes('bookshelf')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1594620302200-9a762244a156",
+        "https://images.unsplash.com/photo-1502825766242-3c9b1548eefa"
+      ];
+    } else {
+      product.images = [
+        "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6", 
+        "https://images.unsplash.com/photo-1538688525198-9b88f6f53126"
+      ];
+    }
   } else if (product.category === 'accessories') {
-    product.images = [
-      "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85", 
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
-    ];
+    if (product.name.toLowerCase().includes('plant')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1485955900006-10f4d324d411",
+        "https://images.unsplash.com/photo-1463320726281-696a485928c7"
+      ];
+    } else if (product.name.toLowerCase().includes('clock')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c",
+        "https://images.unsplash.com/photo-1508057198894-247b23fe5ade"
+      ];
+    } else if (product.name.toLowerCase().includes('art') || product.name.toLowerCase().includes('frame')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1513519245088-0e12902e5a38",
+        "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85"
+      ];
+    } else if (product.name.toLowerCase().includes('basket') || product.name.toLowerCase().includes('vase')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "https://images.unsplash.com/photo-1581783342308-f792dbdd27c4"
+      ];
+    } else {
+      product.images = [
+        "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85", 
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
+      ];
+    }
   } else if (product.category === 'lighting') {
-    product.images = [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15", 
-      "https://images.unsplash.com/photo-1540932239986-30128078f3c5"
-    ];
+    if (product.name.toLowerCase().includes('pendant')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1610701596007-11502861dcfa",
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      ];
+    } else if (product.name.toLowerCase().includes('lamp')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
+        "https://images.unsplash.com/photo-1540932239986-30128078f3c5"
+      ];
+    } else if (product.name.toLowerCase().includes('chandelier')) {
+      product.images = [
+        "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+        "https://images.unsplash.com/photo-1540638349517-3abd5afc5847"
+      ];
+    } else {
+      product.images = [
+        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15", 
+        "https://images.unsplash.com/photo-1540932239986-30128078f3c5"
+      ];
+    }
   }
 }
 
