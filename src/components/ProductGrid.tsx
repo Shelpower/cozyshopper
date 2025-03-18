@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Grid, List, SlidersHorizontal } from 'lucide-react';
+import { Grid, List, SlidersHorizontal, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
