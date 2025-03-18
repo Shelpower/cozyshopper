@@ -65,6 +65,42 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
+
+  /* Blue theme */
+  .theme-blue {
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 210 100% 50%;
+  }
+
+  /* Purple theme */
+  .theme-purple {
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 270 70% 60%;
+  }
+
+  /* Green theme */
+  .theme-green {
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 142 70% 45%;
+  }
+
+  /* High contrast mode adjustments */
+  .high-contrast {
+    --primary: 220 90% 60%;
+    --muted-foreground: 220 40% 40%;
+    --border: 214.3 50% 60%;
+  }
+
+  .dark.high-contrast {
+    --primary: 210 90% 75%;
+    --muted-foreground: 215 70% 75%;
+    --border: 217.2 60% 60%;
+    --background: 220 90% 2%;
+    --foreground: 210 40% 98%;
+  }
 }
  
 @layer base {
@@ -116,17 +152,28 @@
   transition: none !important;
 }
 
-/* Accessibility - High Contrast */
-.high-contrast {
-  --primary: 222.2 80% 50%;
-  --muted-foreground: 215.4 40% 40%;
-  --border: 214.3 60% 70%;
+/* Accessibility - Dyslexia friendly font */
+.dyslexia-font {
+  font-family: 'Open Sans', 'Comic Sans MS', sans-serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
 }
 
-.dark.high-contrast {
-  --primary: 210 90% 80%;
-  --muted-foreground: 215 70% 80%;
-  --border: 217.2 60% 60%;
+/* Line spacing adjustments */
+.line-spacing-tight {
+  line-height: 1.2;
+}
+
+.line-spacing-normal {
+  line-height: 1.5;
+}
+
+.line-spacing-relaxed {
+  line-height: 1.8;
+}
+
+.line-spacing-loose {
+  line-height: 2;
 }
 
 /* Cart styling */
@@ -146,4 +193,62 @@
 
 .cart-wrapper.open {
   transform: translateX(0);
+}
+
+/* Page transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Product card styling with hover effects */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom button styles */
+.btn-gradient {
+  @apply bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground)/0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground)/0.7);
 }

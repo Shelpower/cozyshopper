@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
-    <footer className="border-t py-12 bg-muted/30">
+    <footer className="border-t py-12 bg-gradient-to-b from-muted/30 to-muted/50">
       <div className="container px-4 md:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div>
@@ -32,10 +32,10 @@ const Footer = () => {
           <div>
             <h3 className="font-medium text-lg mb-4">Legal</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/legal" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
-              <li><Link to="/legal" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/legal" className="text-muted-foreground hover:text-foreground transition-colors">Refund Policy</Link></li>
-              <li><Link to="/legal" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
+              <li><Link to="/legal/terms" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
+              <li><Link to="/legal/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/legal/refund" className="text-muted-foreground hover:text-foreground transition-colors">Refund Policy</Link></li>
+              <li><Link to="/legal/cookies" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
           
@@ -73,24 +73,22 @@ const Footer = () => {
             </Link>
           </div>
           
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="flex items-center gap-4">
-              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="YouTube" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
+          <div className="flex items-center gap-4">
+            <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors rounded-full p-2">
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors rounded-full p-2">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors rounded-full p-2">
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors rounded-full p-2">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="#" aria-label="YouTube" className="text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors rounded-full p-2">
+              <Youtube className="h-5 w-5" />
+            </a>
           </div>
         </div>
         

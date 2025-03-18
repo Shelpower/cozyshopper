@@ -26,7 +26,13 @@ import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    },
+  },
+});
 
 // Page transition wrapper
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
@@ -36,10 +42,10 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
       >
         {children}
       </motion.div>
@@ -66,7 +72,7 @@ const AppRoutes = () => {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/careers" element={<CareersPage />} />
-        <Route path="/legal" element={<LegalPage />} />
+        <Route path="/legal/*" element={<LegalPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
@@ -80,11 +86,11 @@ const App = () => (
         <TooltipProvider>
           <CartProvider>
             <Toaster />
-            <Sonner />
+            <Sonner position="top-right" closeButton={true} toastOptions={{ duration: 2000 }} />
             <BrowserRouter>
               <Navbar />
               <Cart />
-              <main>
+              <main className="min-h-screen">
                 <AppRoutes />
               </main>
               <Footer />

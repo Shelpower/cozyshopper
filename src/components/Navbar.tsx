@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/lib/useCart';
-import { Search, ShoppingBag, Menu, X, Home, User, Settings, Sun, Moon, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, Home, User, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SearchBar from './SearchBar';
 import { useTheme } from '@/lib/useTheme';
 
 const Navbar = () => {
   const { totalItems, toggleCart } = useCart();
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -31,8 +31,8 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 px-4 md:px-6 ${
         isScrolled 
-          ? 'py-3 bg-background/95 backdrop-blur-md border-b' 
-          : 'py-5 bg-gradient-to-b from-background/90 to-transparent backdrop-blur-sm'
+          ? 'py-3 bg-background/95 backdrop-blur-md border-b shadow-sm' 
+          : 'py-5 bg-gradient-to-b from-background/90 via-background/70 to-transparent backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -84,19 +84,6 @@ const Navbar = () => {
           </div>
         </nav>
         
-        {/* Social media icons - Desktop only */}
-        <div className="hidden md:flex items-center space-x-3 mr-4">
-          <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
-            <Facebook className="h-4 w-4" />
-          </a>
-          <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
-            <Instagram className="h-4 w-4" />
-          </a>
-          <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary transition-colors">
-            <Twitter className="h-4 w-4" />
-          </a>
-        </div>
-        
         {/* Action buttons */}
         <div className="flex items-center space-x-4">
           <Button 
@@ -109,15 +96,16 @@ const Navbar = () => {
             <Search className="h-5 w-5" />
           </Button>
           
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="relative hover:bg-primary/10"
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
+          <Link to="/settings">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              aria-label="Settings"
+              className="relative hover:bg-primary/10"
+            >
+              <Settings className="h-5 w-5" />
+            </Button>
+          </Link>
           
           <Link to="/profile">
             <Button 
@@ -180,25 +168,12 @@ const Navbar = () => {
             <Link to="/about" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               About
             </Link>
-            <Link to="/profile" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-              Profile
-            </Link>
             <Link to="/settings" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               Settings
             </Link>
-            
-            {/* Social media icons - Mobile only */}
-            <div className="flex space-x-4 pt-2">
-              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-primary">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary">
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
+            <Link to="/profile" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              Profile
+            </Link>
           </nav>
         </div>
       )}
