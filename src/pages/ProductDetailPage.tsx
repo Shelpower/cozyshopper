@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -9,7 +8,7 @@ import { Product } from '@/lib/types';
 import { toast } from 'sonner';
 import CategoryNav from '@/components/CategoryNav';
 import ProductGrid from '@/components/ProductGrid';
-import { Tab, Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ProductDetailPage = () => {
   const { productId } = useParams<{ productId: string }>();
