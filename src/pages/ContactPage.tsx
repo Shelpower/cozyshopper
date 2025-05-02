@@ -80,7 +80,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-medium">Phone</h3>
                     <p className="text-muted-foreground">(555) 123-4567</p>
-                    <p className="text-sm text-muted-foreground">Mon-Fri, 9am-5pm EST</p>
+                    <p className="text-sm text-muted-foreground">Mon-Fri, 9am-5pm CET</p>
                   </div>
                 </div>
                 
@@ -91,7 +91,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-medium">Address</h3>
                     <p className="text-muted-foreground">123 Decor Street</p>
-                    <p className="text-muted-foreground">New York, NY 10001</p>
+                    <p className="text-muted-foreground">Valletta, Malta</p>
                   </div>
                 </div>
                 
@@ -101,8 +101,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-medium">Business Hours</h3>
-                    <p className="text-muted-foreground">Monday-Friday: 9am-5pm EST</p>
-                    <p className="text-muted-foreground">Saturday: 10am-3pm EST</p>
+                    <p className="text-muted-foreground">Monday-Friday: 9am-5pm CET</p>
+                    <p className="text-muted-foreground">Saturday: 10am-3pm CET</p>
                     <p className="text-muted-foreground">Sunday: Closed</p>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const ContactPage = () => {
             
             <div className="h-64 rounded-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" 
+                src="https://images.unsplash.com/photo-1626885930974-4b69aa31507c?w=800&auto=format&fit=crop&q=80" 
                 alt="Our office" 
                 className="w-full h-full object-cover"
               />

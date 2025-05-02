@@ -40,7 +40,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1505843490578-27c7dfbd7f1d" 
+                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80" 
                 alt="Home Office" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -57,7 +57,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1577140917170-285929fb55b7" 
+                src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=800&auto=format&fit=crop&q=80" 
                 alt="Furniture" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -74,7 +74,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4" 
+                src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80" 
                 alt="Lighting" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -136,7 +136,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6" 
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80" 
                 alt="Modern interior design" 
                 className="rounded-lg aspect-[4/3] object-cover"
               />

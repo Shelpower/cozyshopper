@@ -56,8 +56,8 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 text-muted-foreground mt-1" />
                 <address className="text-muted-foreground not-italic">
                   123 Decor Street<br />
-                  New York, NY 10001<br />
-                  United States
+                  Valletta<br />
+                  Malta
                 </address>
               </li>
             </ul>
