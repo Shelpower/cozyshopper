@@ -1,7 +1,7 @@
 
 import { Product, CategoryNavItem, User } from './types';
 
-// Our product data - reduced to 10 products total across 3 categories
+// Our product data - 10 products total across 3 categories
 export const products: Product[] = [
   // Office Category (3 products, 1 on sale)
   {
@@ -12,8 +12,8 @@ export const products: Product[] = [
     originalPrice: 89.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      "https://images.unsplash.com/photo-1534641760636-75c3878ae645?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=2070&auto=format&fit=crop"
     ],
     category: 'office',
     tags: ['lighting', 'desk', 'modern'],
@@ -27,8 +27,8 @@ export const products: Product[] = [
     description: 'Premium ergonomic office chair with lumbar support and breathable mesh back.',
     price: 299.99,
     images: [
-      "https://images.unsplash.com/photo-1505843490578-27c7dfbd7f1d",
-      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8"
+      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=2073&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1624055039888-c203ddbd44d7?q=80&w=2070&auto=format&fit=crop"
     ],
     category: 'office',
     tags: ['chair', 'ergonomic', 'comfort'],
@@ -42,8 +42,8 @@ export const products: Product[] = [
     description: 'Handcrafted wooden desk organizer with multiple compartments for stationery and gadgets.',
     price: 49.99,
     images: [
-      "https://images.unsplash.com/photo-1591129841117-3adfd313a592",
-      "https://images.unsplash.com/photo-1502005097973-6a7082348e28"
+      "https://images.unsplash.com/photo-1591129841117-3adfd313a592?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1596162954151-cdcb4c0f70fb?q=80&w=2072&auto=format&fit=crop"
     ],
     category: 'office',
     tags: ['organizer', 'wooden', 'desk'],
@@ -60,8 +60,8 @@ export const products: Product[] = [
     originalPrice: 249.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1577140917170-285929fb55b7",
-      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88"
+      "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=2013&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?q=80&w=2074&auto=format&fit=crop"
     ],
     category: 'furniture',
     tags: ['table', 'scandinavian', 'living room'],
@@ -75,8 +75,8 @@ export const products: Product[] = [
     description: 'Electric height-adjustable standing desk with memory settings and smooth operation.',
     price: 499.99,
     images: [
-      "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd",
-      "https://images.unsplash.com/photo-1544140708-514b7837c325"
+      "https://images.unsplash.com/photo-1636654129379-e7ae6f30bfd0?q=80&w=2004&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?q=80&w=2065&auto=format&fit=crop"
     ],
     category: 'furniture',
     tags: ['desk', 'standing', 'adjustable'],
@@ -90,8 +90,8 @@ export const products: Product[] = [
     description: 'Comfortable armchair with mid-century design and premium upholstery.',
     price: 349.99,
     images: [
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c",
-      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91"
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1916&auto=format&fit=crop"
     ],
     category: 'furniture',
     tags: ['chair', 'living room', 'mid-century'],
@@ -108,8 +108,8 @@ export const products: Product[] = [
     originalPrice: 109.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1610701596007-11502861dcfa",
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594126572740-9e267fe3b5ec?q=80&w=2070&auto=format&fit=crop"
     ],
     category: 'lighting',
     tags: ['ceiling', 'pendant', 'modern'],
@@ -123,8 +123,8 @@ export const products: Product[] = [
     description: 'Elegant floor lamp with reading light and dimming function.',
     price: 129.99,
     images: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
-      "https://images.unsplash.com/photo-1540932239986-30128078f3c5"
+      "https://images.unsplash.com/photo-1543198126-1ad8a2667c69?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=1974&auto=format&fit=crop"
     ],
     category: 'lighting',
     tags: ['lamp', 'floor', 'standing'],
@@ -137,8 +137,8 @@ export const products: Product[] = [
     description: 'Modern desk lamp with built-in wireless charging pad.',
     price: 69.99,
     images: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15",
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      "https://images.unsplash.com/photo-1550622824-c11e614e2d82?q=80&w=2071&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1780&auto=format&fit=crop"
     ],
     category: 'lighting',
     tags: ['desk', 'charging', 'multifunctional'],
@@ -151,8 +151,8 @@ export const products: Product[] = [
     description: 'Contemporary chandelier with adjustable height for dining rooms.',
     price: 199.99,
     images: [
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-      "https://images.unsplash.com/photo-1540638349517-3abd5afc5847"
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1489269637500-aa0e75768394?q=80&w=2070&auto=format&fit=crop"
     ],
     category: 'lighting',
     tags: ['ceiling', 'chandelier', 'dining'],

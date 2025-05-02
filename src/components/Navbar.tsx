@@ -64,12 +64,6 @@ const Navbar = () => {
               Furniture
             </Link>
             <Link 
-              to="/products/accessories" 
-              className="text-sm font-medium hover:text-primary transition-all duration-300 fisheye-item"
-            >
-              Accessories
-            </Link>
-            <Link 
               to="/products/lighting" 
               className="text-sm font-medium hover:text-primary transition-all duration-300 fisheye-item"
             >
@@ -158,9 +152,6 @@ const Navbar = () => {
             </Link>
             <Link to="/products/furniture" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               Furniture
-            </Link>
-            <Link to="/products/accessories" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-              Accessories
             </Link>
             <Link to="/products/lighting" className="text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
               Lighting
