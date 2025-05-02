@@ -19,7 +19,6 @@ import CheckoutPage from "./pages/CheckoutPage";
 import AboutPage from "./pages/AboutPage";
 import FAQPage from "./pages/FAQPage";
 import ContactPage from "./pages/ContactPage";
-import CareersPage from "./pages/CareersPage";
 import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -71,7 +70,6 @@ const AppRoutes = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/careers" element={<CareersPage />} />
         <Route path="/legal/*" element={<LegalPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
