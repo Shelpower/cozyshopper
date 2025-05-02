@@ -40,7 +40,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1505797149328-7e2050fca558?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1591300103731-0dee8e0c1cf9?w=800&auto=format&fit=crop&q=80" 
                 alt="Home Office" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -57,7 +57,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80" 
                 alt="Furniture" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

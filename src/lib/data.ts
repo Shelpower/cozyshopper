@@ -12,8 +12,8 @@ export const products: Product[] = [
     originalPrice: 89.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
     tags: ['lighting', 'desk', 'modern'],
@@ -27,8 +27,8 @@ export const products: Product[] = [
     description: 'Premium ergonomic office chair with lumbar support and breathable mesh back.',
     price: 299.99,
     images: [
-      "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
     tags: ['chair', 'ergonomic', 'comfort'],
@@ -137,8 +137,8 @@ export const products: Product[] = [
     description: 'Modern desk lamp with built-in wireless charging pad.',
     price: 69.99,
     images: [
-      "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['desk', 'charging', 'multifunctional'],
