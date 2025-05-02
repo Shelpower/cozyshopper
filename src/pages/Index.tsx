@@ -57,7 +57,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop&q=80" 
                 alt="Furniture" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -74,7 +74,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1565767426231-1d27efb7f686?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1615800001964-5afd0ae8e49a?w=800&auto=format&fit=crop&q=80" 
                 alt="Lighting" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -136,7 +136,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=800&auto=format&fit=crop&q=80" 
                 alt="Modern interior design" 
                 className="rounded-lg aspect-[4/3] object-cover"
               />
