@@ -12,8 +12,8 @@ export const products: Product[] = [
     originalPrice: 89.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1534641760636-75c3878ae645?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1573150323599-0c8cdc4c4b5e?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
     tags: ['lighting', 'desk', 'modern'],
@@ -27,8 +27,8 @@ export const products: Product[] = [
     description: 'Premium ergonomic office chair with lumbar support and breathable mesh back.',
     price: 299.99,
     images: [
-      "https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1541323181472-9275c5ea7a26?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
     tags: ['chair', 'ergonomic', 'comfort'],
@@ -60,8 +60,8 @@ export const products: Product[] = [
     originalPrice: 249.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1565985660604-5f45f2fc9243?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1532372320572-cda25653a694?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'furniture',
     tags: ['table', 'scandinavian', 'living room'],
@@ -91,7 +91,7 @@ export const products: Product[] = [
     price: 349.99,
     images: [
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1617364852223-75f57e78dc96?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'furniture',
     tags: ['chair', 'living room', 'mid-century'],
@@ -108,8 +108,8 @@ export const products: Product[] = [
     originalPrice: 109.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1565767426633-66f47627f57b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['ceiling', 'pendant', 'modern'],
@@ -123,8 +123,8 @@ export const products: Product[] = [
     description: 'Elegant floor lamp with reading light and dimming function.',
     price: 129.99,
     images: [
-      "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1669086293434-b2d1c7c3586f?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['lamp', 'floor', 'standing'],
@@ -137,7 +137,7 @@ export const products: Product[] = [
     description: 'Modern desk lamp with built-in wireless charging pad.',
     price: 69.99,
     images: [
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1534641760636-75c3878ae645?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1573150323599-0c8cdc4c4b5e?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
@@ -151,37 +151,13 @@ export const products: Product[] = [
     description: 'Contemporary chandelier with adjustable height for dining rooms.',
     price: 199.99,
     images: [
-      "https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1504229454649-b3da8a63881e?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1615874694520-474822394e73?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['ceiling', 'chandelier', 'dining'],
     inStock: true,
     rating: 4.9
-  }
-];
-
-// Category navigation items - removed accessories
-export const categoryNavItems: CategoryNavItem[] = [
-  {
-    name: 'all',
-    label: 'All Products',
-    filter: 'all'
-  },
-  {
-    name: 'office',
-    label: 'Home Office',
-    filter: 'office'
-  },
-  {
-    name: 'furniture',
-    label: 'Furniture',
-    filter: 'furniture'
-  },
-  {
-    name: 'lighting',
-    label: 'Lighting',
-    filter: 'lighting'
   }
 ];
 
@@ -212,6 +188,30 @@ export const searchProducts = (query: string): Product[] => {
     product.tags.some(tag => tag.toLowerCase().includes(lowercaseQuery))
   );
 };
+
+// Category navigation items
+export const categoryNavItems: CategoryNavItem[] = [
+  {
+    name: 'all',
+    label: 'All Products',
+    filter: 'all'
+  },
+  {
+    name: 'office',
+    label: 'Home Office',
+    filter: 'office'
+  },
+  {
+    name: 'furniture',
+    label: 'Furniture',
+    filter: 'furniture'
+  },
+  {
+    name: 'lighting',
+    label: 'Lighting',
+    filter: 'lighting'
+  }
+];
 
 // Mock users data
 export const users: User[] = [
