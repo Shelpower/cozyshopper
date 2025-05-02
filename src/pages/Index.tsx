@@ -40,7 +40,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&auto=format&fit=crop&q=80" 
                 alt="Home Office" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -57,7 +57,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&auto=format&fit=crop&q=80" 
                 alt="Furniture" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -74,7 +74,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1565767426633-66f47627f57b?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1565767426231-1d27efb7f686?w=800&auto=format&fit=crop&q=80" 
                 alt="Lighting" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -136,7 +136,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80" 
                 alt="Modern interior design" 
                 className="rounded-lg aspect-[4/3] object-cover"
               />

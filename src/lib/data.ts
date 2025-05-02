@@ -1,4 +1,3 @@
-
 import { Product, CategoryNavItem, User } from './types';
 
 // Our product data - 10 products total across 3 categories
@@ -12,7 +11,7 @@ export const products: Product[] = [
     originalPrice: 89.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "public/lovable-uploads/d836f4f2-44f3-4af2-9048-45347ad306fb.png",
       "https://images.unsplash.com/photo-1573150323599-0c8cdc4c4b5e?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
@@ -27,8 +26,8 @@ export const products: Product[] = [
     description: 'Premium ergonomic office chair with lumbar support and breathable mesh back.',
     price: 299.99,
     images: [
-      "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800&auto=format&fit=crop&q=80"
+      "public/lovable-uploads/b5f40d95-0632-4687-9410-3499dc45e593.png",
+      "https://images.unsplash.com/photo-1618166726583-31d9304a4c7f?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
     tags: ['chair', 'ergonomic', 'comfort'],
@@ -42,7 +41,7 @@ export const products: Product[] = [
     description: 'Handcrafted wooden desk organizer with multiple compartments for stationery and gadgets.',
     price: 49.99,
     images: [
-      "https://images.unsplash.com/photo-1544247341-88c7f71e83a6?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1628350121297-83d50894e447?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1591129841117-3adfd313a592?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'office',
@@ -60,8 +59,8 @@ export const products: Product[] = [
     originalPrice: 249.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1532372320572-cda25653a694?w=800&auto=format&fit=crop&q=80"
+      "public/lovable-uploads/c4135269-3a27-4db8-a33f-8b02cbb24c3d.png",
+      "https://images.unsplash.com/photo-1567538096621-38d2284b23ff?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'furniture',
     tags: ['table', 'scandinavian', 'living room'],
@@ -75,7 +74,7 @@ export const products: Product[] = [
     description: 'Electric height-adjustable standing desk with memory settings and smooth operation.',
     price: 499.99,
     images: [
-      "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1595514535215-8a5b0fad470b?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'furniture',
@@ -90,7 +89,7 @@ export const products: Product[] = [
     description: 'Comfortable armchair with mid-century design and premium upholstery.',
     price: 349.99,
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1589584649628-b597067e07a3?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1617364852223-75f57e78dc96?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'furniture',
@@ -108,7 +107,7 @@ export const products: Product[] = [
     originalPrice: 109.99,
     onSale: true,
     images: [
-      "https://images.unsplash.com/photo-1565767426633-66f47627f57b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1565767426231-1d27efb7f686?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
@@ -123,8 +122,8 @@ export const products: Product[] = [
     description: 'Elegant floor lamp with reading light and dimming function.',
     price: 129.99,
     images: [
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1669086293434-b2d1c7c3586f?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1600494448655-ae58ef1764ca?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['lamp', 'floor', 'standing'],
@@ -137,8 +136,8 @@ export const products: Product[] = [
     description: 'Modern desk lamp with built-in wireless charging pad.',
     price: 69.99,
     images: [
-      "https://images.unsplash.com/photo-1534641760636-75c3878ae645?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1573150323599-0c8cdc4c4b5e?w=800&auto=format&fit=crop&q=80"
+      "public/lovable-uploads/c4135269-3a27-4db8-a33f-8b02cbb24c3d.png",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
     tags: ['desk', 'charging', 'multifunctional'],
@@ -151,7 +150,7 @@ export const products: Product[] = [
     description: 'Contemporary chandelier with adjustable height for dining rooms.',
     price: 199.99,
     images: [
-      "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1565538420870-da08ff96a207?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1615874694520-474822394e73?w=800&auto=format&fit=crop&q=80"
     ],
     category: 'lighting',
