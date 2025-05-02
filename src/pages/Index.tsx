@@ -20,7 +20,7 @@ const Index = () => {
       <Hero />
       
       {/* Categories section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-b from-muted/30 to-muted/10">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
             <div>
@@ -40,7 +40,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" 
+                src="https://images.unsplash.com/photo-1505843490578-27c7dfbd7f1d" 
                 alt="Home Office" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -57,7 +57,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+                src="https://images.unsplash.com/photo-1577140917170-285929fb55b7" 
                 alt="Furniture" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -70,18 +70,18 @@ const Index = () => {
             </Link>
             
             <Link 
-              to="/products/accessories" 
+              to="/products/lighting" 
               className="group relative overflow-hidden rounded-lg aspect-square hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" 
-                alt="Accessories" 
+                src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4" 
+                alt="Lighting" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white text-xl font-medium">Accessories</h3>
-                  <p className="text-white/80 text-sm">The finishing touches</p>
+                  <h3 className="text-white text-xl font-medium">Lighting</h3>
+                  <p className="text-white/80 text-sm">Illuminate your space</p>
                 </div>
               </div>
             </Link>
@@ -109,7 +109,7 @@ const Index = () => {
       </section>
       
       {/* Design philosophy section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-b from-muted/10 to-muted/30">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -136,7 +136,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" 
+                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6" 
                 alt="Modern interior design" 
                 className="rounded-lg aspect-[4/3] object-cover"
               />
@@ -170,8 +170,6 @@ const Index = () => {
           </p>
         </div>
       </section>
-      
-      {/* Removed duplicate footer section */}
     </div>
   );
 };

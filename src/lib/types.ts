@@ -14,7 +14,7 @@ export interface Product {
   originalPrice?: number;
 }
 
-export type Category = 'office' | 'furniture' | 'accessories' | 'lighting';
+export type Category = 'office' | 'furniture' | 'lighting';
 
 export interface CartItem {
   product: Product;
