@@ -136,7 +136,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=800&auto=format&fit=crop&q=80" 
+                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop&q=80" 
                 alt="Modern interior design" 
                 className="rounded-lg aspect-[4/3] object-cover"
               />
