@@ -35,8 +35,8 @@ const Hero = () => {
           </div>
           <div className="relative aspect-[4/3] md:aspect-square overflow-hidden rounded-lg animate-scale">
             <img
-              src="https://images.unsplash.com/photo-1556909211-36987daf7b4d?w=800&auto=format&fit=crop&q=80"
-              alt="Modern home office setup"
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80"
+              alt="Modern living room with stylish furniture"
               className="object-cover w-full h-full"
               loading="eager"
             />
